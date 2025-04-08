@@ -1,0 +1,19 @@
+# Virtual environment
+venv/
+.env
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Data files
+*.csv
+*.xlsx
+*.xls
+*.parquet
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Editor and system files
+.vscode/
+.DS_Store

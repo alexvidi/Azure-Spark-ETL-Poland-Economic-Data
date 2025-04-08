@@ -5,12 +5,6 @@ venv/
 __pycache__/
 *.pyc
 
-# Data files
-*.csv
-*.xlsx
-*.xls
-*.parquet
-
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
 

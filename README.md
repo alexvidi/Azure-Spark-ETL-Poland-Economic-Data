@@ -69,7 +69,7 @@ POLAND-ECONOMIC-PIPELINE/
 ```
 ## SQL Analysis with Azure Data Studio
 
-As part of the project, the following key SQL queries were developed and executed in Azure Data Studio to extract meaningful insights from the data stored in Azure SQL Database:
+Key insights were derived from the integrated data using SQL queries executed in Azure Data Studio. Below is an example query used for analysis. Additional queries, such as finding the top voivodeships by GDP or those with the highest unemployment, can be found in the [`sql/`](./sql/) directory of this project.
 
 ### 1. GDP to Wage Ratio by Voivodeship
 
@@ -79,7 +79,7 @@ Shows how efficiently GDP translates into average wages per region
 SELECT
     voivodeship,
     gdp_per_capita_pln / average_gross_wage AS gdp_to_wage_ratio
-FROM regional_economic_data_2023 -- Use your actual table name
+FROM regional_economic_data_2023 
 ORDER BY gdp_to_wage_ratio DESC;
 ```
 

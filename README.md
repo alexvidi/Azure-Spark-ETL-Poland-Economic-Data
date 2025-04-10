@@ -22,6 +22,7 @@ This project delivers a complete end-to-end data engineering pipeline focused on
 
 ## Project Structure
 
+```
 POLAND-ECONOMIC-PIPELINE/
 ├── dashboard/
 │   └── interactive_dashboard_demo.mp4         # Demo video showing dashboard interactivity
@@ -56,7 +57,7 @@ POLAND-ECONOMIC-PIPELINE/
 │   └── merge_with_spark.py
 ├── requirements.txt                         # Python dependencies
 └── README.md                                # Project documentation
-
+```
 ## Highlights
 
 * Fully reproducible ETL pipeline using Python scripts.
@@ -82,4 +83,4 @@ POLAND-ECONOMIC-PIPELINE/
 
 * **Alexandre Vidal**  
 
-10/04/2025
+    10/04/2025

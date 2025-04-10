@@ -8,6 +8,11 @@ Here's a demonstration of the final dashboard created by Power BI:
 
 ![Interactive Dashboard Demo](gif/interactive_dashboard_demo-ezgif.com-video-to-gif-converter.gif)
 
+## Data Source
+
+The data used in this project comes from official publications by Statistics Poland (GUS).
+* **Source Portal:** [Statistics Poland (GUS)](https://stat.gov.pl/en/)
+
 ## Technologies Used
 
 * **Python** (pandas, openpyxl, pyodbc) - For data extraction, transformation, and loading.
@@ -62,10 +67,26 @@ POLAND-ECONOMIC-PIPELINE/
 ├── requirements.txt                         # Python dependencies
 └── README.md                                # Project documentation
 ```
+## SQL Analysis with Azure Data Studio
+
+As part of the project, the following key SQL queries were developed and executed in Azure Data Studio to extract meaningful insights from the data stored in Azure SQL Database:
+
+### 1. GDP to Wage Ratio by Voivodeship
+
+Shows how efficiently GDP translates into average wages per region
+
+```sql
+SELECT
+    voivodeship,
+    gdp_per_capita_pln / average_gross_wage AS gdp_to_wage_ratio
+FROM regional_economic_data_2023 -- Use your actual table name
+ORDER BY gdp_to_wage_ratio DESC;
+```
+
 ## Highlights
 
 * Fully reproducible ETL pipeline using Python scripts.
-* Clean code structure with comments in English.
+* Clean code structure with comments.
 * Cloud integration leveraging Azure services.
 * Powerful and interactive regional dashboard featuring an animated map selection.
 * SQL-based analysis for deriving additional insights and validating data.
@@ -87,4 +108,4 @@ POLAND-ECONOMIC-PIPELINE/
 
 * **Alexandre Vidal**  
 
-    10/04/2025
+    April 2025

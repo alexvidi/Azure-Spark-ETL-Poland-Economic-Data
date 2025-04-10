@@ -4,6 +4,8 @@
 
 This project delivers a complete end-to-end data engineering pipeline focused on regional economic and demographic indicators in Poland for the year 2023. The final result is an interactive Power BI dashboard, which visualizes and analyzes GDP per capita, unemployment rate, gross average wage, and population across Polish voivodeships.
 
+![Interactive Dashboard Demo](gif/interactive_dashboard_demo-ezgif.com-video-to-gif-converter.gif)
+
 ## Technologies Used
 
 * **Python** (pandas, openpyxl, pyodbc) - For data extraction, transformation, and loading.

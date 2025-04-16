@@ -1,80 +1,90 @@
-# Regional Socio-Economic Data Pipeline: Poland 2023
+# 🇵🇱 End-to-End Azure & Spark ETL Pipeline for Polish Economic Insights (2023)
+
+A professional, portfolio-ready data engineering project for regional economic and demographic analysis in Poland, leveraging Spark, Azure SQL, and Power BI.
+
+---
+
+## Executive Summary
+
+This project implements a robust, end-to-end ETL pipeline to process, integrate, and visualize key socio-economic indicators for Polish voivodeships (2023). The solution enables data-driven insights for policy makers, analysts, and researchers through a cloud-based architecture and an interactive Power BI dashboard.
+
+---
+
+## Table of Contents
+- [Overview](#overview)
+- [Key Indicators](#key-indicators)
+- [Data Sources](#data-sources)
+- [Technologies](#technologies)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Business Value](#business-value)
+- [SQL Analysis](#sql-analysis)
+- [Getting Started](#getting-started)
+- [Author](#author)
+
+---
 
 ## Overview
 
-This project delivers a complete end-to-end data engineering pipeline focused on regional economic and demographic indicators in Poland for the year 2023. The final result is an interactive Power BI dashboard, which visualizes and analyzes GDP per capita, unemployment rate, gross average wage, and population across Polish voivodeships.
+This pipeline extracts, cleans, and integrates official datasets from Statistics Poland (GUS), covering GDP per capita, unemployment rate, average gross wage, and population by region. The processed data is loaded into Azure SQL Database and visualized in Power BI for actionable insights.
 
-Here's a demonstration of the final dashboard created by Power BI:
-
+**Dashboard Demo:**
 ![Interactive Dashboard Demo](gif/interactive_dashboard_demo-ezgif.com-video-to-gif-converter.gif)
 
-## Data Source
+## Key Indicators
+- GDP per capita
+- Average gross monthly wage
+- Unemployment rate
+- Population
 
-The data used in this project comes from official publications by Statistics Poland (GUS).
-* **Source Portal:** [Statistics Poland (GUS)](https://stat.gov.pl/en/)
+## Data Sources
+- Official publications from [Statistics Poland (GUS)](https://stat.gov.pl/en/)
 
-## Technologies Used
+## Technologies
+- **Python** (pandas, openpyxl, pyodbc): ETL and data processing
+- **Spark (PySpark):** Distributed data transformation
+- **Azure SQL Database:** Cloud data storage
+- **Power BI:** Interactive dashboard and reporting
+- **Azure Data Studio:** SQL analysis and database management
 
-* **Python** (pandas, openpyxl, pyodbc) - For data extraction, transformation, and loading.
-* **Azure SQL Database** - Cloud-based relational database for storing structured data.
-* **Spark (via PySpark)** - For distributed data merging and transformation.
-* **Power BI** - For creating interactive dashboards and visual analysis.
-* **Azure Data Studio** - For executing SQL queries and database inspection.
+## Architecture
 
-## Objectives
-
-* Extract and process official socio-economic datasets from Statistics Poland (GUS).
-* Clean, transform, and integrate the data using Python and SQL.
-* Load structured data into Azure SQL Database.
-* Create insightful visualizations with Power BI.
-* Showcase a fully professional and portfolio-ready data pipeline.
+```mermaid
+graph TD
+    A[Raw Excel files (GUS)] --> B[Python ETL scripts]
+    B --> C[Cleaned CSV files]
+    C --> D[PySpark join & transformation]
+    D --> E[Azure SQL Database]
+    E --> F[Power BI Dashboard]
+```
 
 ## Project Structure
 
-```
+```text
 POLAND-ECONOMIC-PIPELINE/
-├── dashboard/
-│   └── interactive_dashboard_demo.mp4         # Demo video showing dashboard interactivity
+├── dashboard/         # Dashboard demo video
 ├── data/
-│   ├── processed/                            # Cleaned and transformed datasets
-│   │   ├── average_gross_wage_2023.csv
-│   │   ├── gdp_per_capita_2023.csv
-│   │   ├── population_2023.csv
-│   │   ├── regional_economic_data_2023_spark.csv
-│   │   └── unemployment_rate_2023.csv
-│   ├── raw/                                 # Raw source files from Statistics Poland
-│   │   ├── labour_market_2023.xlsx
-│   │   ├── population_2023.xlsx
-│   │   ├── regional_accounts_2023.xlsx
-│   │   └── wages_and_salaries_2023.xlsx
-├── images/                                  # Exported visualizations from Power BI
-│   ├── GDP to Wage Ratio by Voivodeship.png
-│   ├── Top 5 Voivodeships by GDP per Capita.png
-│   └── Voivodeships with the Highest Unemployment Rates.png
-├── powerbi/                                 # Power BI dashboard project
-│   └── regional_dashboard_poland_2023.pbix
-├── sql/                                     # Key SQL queries executed in Azure Data Studio
-│   ├── gdp_to_wage_ratio.sql
-│   ├── top_gdp_per_capita.sql
-│   └── unemployment_highest.sql
-├── src/                                     # ETL scripts in Python
-│   ├── extract_gus_data.py
-│   ├── extract_population_data.py
-│   ├── extract_unemployment_data.py
-│   ├── extract_wages_data.py
-│   ├── load_to_azure_sql.py
-│   └── merge_with_spark.py
-├── requirements.txt                         # Python dependencies
-└── README.md                                # Project documentation
+│   ├── processed/     # Cleaned datasets (CSV)
+│   └── raw/           # Raw GUS Excel files
+├── images/            # Power BI visualizations
+├── powerbi/           # Power BI project file
+├── sql/               # SQL analysis scripts
+├── src/               # Python ETL scripts
+├── requirements.txt   # Python dependencies
+└── README.md          # Project documentation
 ```
-## SQL Analysis with Azure Data Studio
 
-Key insights were derived from the integrated data using SQL queries executed in Azure Data Studio. Below is an example query used for analysis. Additional queries, such as finding the top voivodeships by GDP or those with the highest unemployment, can be found in the [`sql/`](./sql/) directory of this project.
+## Business Value
+- **Policy makers:** Compare regional economic performance
+- **Researchers/analysts:** Detect disparities between GDP and wages
+- **Decision makers:** Visualize unemployment and socio-economic patterns
+- **Stakeholders:** Communicate insights via interactive dashboards
 
-### 1. GDP to Wage Ratio by Voivodeship
+## SQL Analysis
 
-Shows how efficiently GDP translates into average wages per region
+Key insights are derived using SQL queries in Azure Data Studio. Example:
 
+**GDP to Wage Ratio by Voivodeship**
 ```sql
 SELECT
     voivodeship,
@@ -82,30 +92,42 @@ SELECT
 FROM regional_economic_data_2023 
 ORDER BY gdp_to_wage_ratio DESC;
 ```
-
-## Highlights
-
-* Fully reproducible ETL pipeline using Python scripts.
-* Clean code structure with comments.
-* Cloud integration leveraging Azure services.
-* Powerful and interactive regional dashboard featuring an animated map selection.
-* SQL-based analysis for deriving additional insights and validating data.
+Additional queries are available in the [`sql/`](./sql/) directory.
 
 ## Getting Started
 
-1.  Clone the repository to your local machine.
-2.  Install the required Python dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  Execute the ETL scripts located in the `src/` directory to process the raw data and generate the cleaned datasets.
-4.  Upload the processed datasets (from `data/processed/`) to your Azure SQL Database instance.
-5.  Open the Power BI project file (`regional_dashboard_poland_2023.pbix`) located in the `powerbi/` directory.
-6.  Refresh the data connection within Power BI to link to your Azure SQL Database.
-7.  Explore the interactive dashboard or export visualizations/reports as needed.
+### Prerequisites
+- Python 3.8+
+- Azure SQL Database instance
+- Power BI Desktop
+
+### Setup Instructions
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/alexvidi/Azure-Spark-ETL-Poland-Economic-Data.git
+   ```
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run ETL scripts:**
+   Execute scripts in `src/` to process raw data and generate cleaned datasets.
+4. **Load data to Azure SQL:**
+   Upload processed CSVs from `data/processed/` to your Azure SQL Database.
+5. **Open Power BI dashboard:**
+   Open `regional_dashboard_poland_2023.pbix` in Power BI Desktop.
+6. **Configure data source:**
+   Refresh the data connection to link with your Azure SQL Database.
+7. **Explore and analyze:**
+   Interact with the dashboard or export visualizations as needed.
+
+---
 
 ## Author
 
-* **Alexandre Vidal**  
+**Alexandre Vidal**  
+[alexvidaldepalol@gmail.com](mailto:alexvidaldepalol@gmail.com)  
+[LinkedIn](https://www.linkedin.com/in/alex-vidal-de-palol-a18538155/)  
+[GitHub](https://github.com/alexvidi)
 
-    April 2025
+Project Repository: [Azure-Spark-ETL-Poland-Economic-Data](https://github.com/alexvidi/Azure-Spark-ETL-Poland-Economic-Data)

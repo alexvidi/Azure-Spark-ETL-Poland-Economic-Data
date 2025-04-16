@@ -51,11 +51,37 @@ This pipeline extracts, cleans, and integrates official datasets from Statistics
 
 ```mermaid
 graph TD
-    A[Raw Excel files (GUS)] --> B["Python ETL scripts"]
-    B --> C["Cleaned CSV files"]
-    C --> D["PySpark join & transformation"]
-    D --> E["Azure SQL Database"]
-    E --> F["Power BI Dashboard"]
+    A[Raw Excel Files GUS] --> B[Python ETL Scripts]
+    B --> C[Cleaned CSV Files]
+    C --> D[PySpark Join & Transformation]
+    D --> E[Azure SQL Database]
+    E --> F[Power BI Dashboard]
+    
+    %% Additional details
+    G[Statistics Poland GUS] -->|Data Source| A
+    B -->|Cleaning & Transformation| B1[GDP Processing]
+    B -->|Cleaning & Transformation| B2[Wages Processing]
+    B -->|Cleaning & Transformation| B3[Unemployment Processing]
+    B -->|Cleaning & Transformation| B4[Population Processing]
+    B1 --> C
+    B2 --> C
+    B3 --> C
+    B4 --> C
+    E -->|SQL Queries| E1[Analysis in Azure Data Studio]
+    E1 --> F
+    F -->|Insights| H[Socioeconomic Indicators]
+    H --> I[Decision Makers]
+    
+    %% Styling
+    classDef azure fill:#0078D4,stroke:#005A9E,color:white
+    classDef data fill:#4CAF50,stroke:#388E3C,color:white
+    classDef process fill:#FF9800,stroke:#F57C00,color:white
+    classDef output fill:#9C27B0,stroke:#7B1FA2,color:white
+    
+    class A,C,G data
+    class B,B1,B2,B3,B4,D process
+    class E,E1 azure
+    class F,H,I output
 ```
 
 ## Project Structure

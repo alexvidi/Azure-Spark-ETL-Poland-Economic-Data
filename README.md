@@ -51,11 +51,11 @@ This pipeline extracts, cleans, and integrates official datasets from Statistics
 
 ```mermaid
 graph TD
-    A[Raw Excel files (GUS)] --> B[Python ETL scripts]
-    B --> C[Cleaned CSV files]
-    C --> D[PySpark join & transformation]
-    D --> E[Azure SQL Database]
-    E --> F[Power BI Dashboard]
+    A[Raw Excel files (GUS)] --> B["Python ETL scripts"]
+    B --> C["Cleaned CSV files"]
+    C --> D["PySpark join & transformation"]
+    D --> E["Azure SQL Database"]
+    E --> F["Power BI Dashboard"]
 ```
 
 ## Project Structure

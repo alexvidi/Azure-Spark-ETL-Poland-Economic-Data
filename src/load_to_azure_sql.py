@@ -13,14 +13,14 @@ import os
 from dotenv import load_dotenv
 
 # === Load credentials from .env file ===
-load_dotenv("../.env")  # Adjust path if needed
+load_dotenv("../.env")  
 
 # === Azure SQL connection parameters ===
-server = os.getenv("AZURE_SQL_SERVER")        # e.g. alex-sql-server-1.database.windows.net
-database = os.getenv("AZURE_SQL_DATABASE")    # e.g. regional_data_db
-username = os.getenv("AZURE_SQL_USERNAME")    # e.g. alexadmin
-password = os.getenv("AZURE_SQL_PASSWORD")    # your password
-driver = '{ODBC Driver 17 for SQL Server}'    # must match installed driver
+server = os.getenv("AZURE_SQL_SERVER")        
+database = os.getenv("AZURE_SQL_DATABASE")    
+username = os.getenv("AZURE_SQL_USERNAME")    
+password = os.getenv("AZURE_SQL_PASSWORD")    
+driver = '{ODBC Driver 17 for SQL Server}'    
 
 # === Build connection string ===
 conn_str = (

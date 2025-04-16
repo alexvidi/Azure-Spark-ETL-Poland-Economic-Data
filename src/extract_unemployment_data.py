@@ -48,7 +48,7 @@ PROCESSED_DATA_DIR.mkdir(parents=True, exist_ok=True)
 df_clean.to_csv(OUTPUT_FILE, index=False)
 
 # === Output summary ===
-print(f"\n✅ Cleaned data saved to: {OUTPUT_FILE}")
+print(f"\n Cleaned data saved to: {OUTPUT_FILE}")
 print(df_clean.head())
 
 

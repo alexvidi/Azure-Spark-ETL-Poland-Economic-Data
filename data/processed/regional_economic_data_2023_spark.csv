@@ -1,8 +1,7 @@
 voivodeship,gdp_per_capita_pln,unemployment_rate,average_gross_wage,population_total
-Dolnośląskie,88480.0,3.1,7414.52,2805.5
 Kujawsko-pomorskie,68130.0,3.8,6416.55,1931.6
 Lubelskie,57467.0,3.9,6454.27,1934.5
-Lubuskie,66799.0,2.7,6510.28,947.8
+Lubuskie,66799.0,,6510.28,947.8
 Mazowieckie,126381.0,2.4,8466.61,5480.0
 Małopolskie,72946.0,2.3,7263.39,3319.0
 Opolskie,66678.0,2.8,6629.61,890.4
